@@ -22,3 +22,106 @@ TABLE OF CONTENTS:
 *, *::before, *::after {
 	box-sizing: border-box;
 }
+
+.logo{
+	width: 200px;
+	position: absolute;
+	z-index:1;
+
+	animation-name: move-stupidly, fade-out;
+	animation-duration: 4s, 3s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: infinite;
+	// animation-direction: alternate;
+	animation-play-state: paused;
+
+	&:hover {
+		animation-direction: reverse;
+		// animation-play-state: running;
+	}
+
+	&.animate{
+		animation-play-state: running;
+	}
+}
+
+.animation-checkbox{
+	padding: 30px;
+	position: absolute;
+	top: 40%;
+	display: none;
+}
+
+.checkbox-label{
+	position: absolute;
+	top: 40%;
+}
+
+.animation-checkbox:checked + .logo {
+	width: 20px;
+	animation-play-state: running;
+}
+
+.animate-button{
+	z-index:2;
+	position: absolute;
+	top: 30%;
+}
+
+@keyframes move-stupidly{
+	0%, 100% {
+		top: 0%;
+		left: 0%;
+	}
+
+	20%, 60%{
+		left: 80%;
+	}
+
+	40%, 80%{
+		left: 20%;
+	}
+
+	20%{
+		top: 80%;
+	}
+
+	40%{
+		top: 10%;
+	}
+
+	// 20%{
+	// 	top: 30%;
+	// 	left: 80%;
+	// }
+
+	// 40%{
+	// 	top: 80%;
+	// 	left: 50%;
+	// }
+
+	// 60%{
+	// 	top: 90%;
+	// 	left: 10%;
+	// }
+
+	// 80%{
+	// 	top: 30%;
+	// 	left: 90%;
+	// }
+	
+	// 100%{
+	// 	top: 0%;
+	// 	left: 0%;
+	// }
+}
+
+@keyframes fade-out{
+	0% {
+		opacity: 1;
+	}
+
+	100%{
+		opacity: 0;
+	}
+}
